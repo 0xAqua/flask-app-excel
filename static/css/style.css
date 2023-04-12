@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.container {
+  padding: 3rem 0;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ------------- btn start --------------- */
+
+.btns {
+  margin-bottom: 12px;
+}
+
+.btns input {
+  padding: 0px 24px;
+  height: 40px;
+  color: #000;
+}
+
+/* -------------- btn end ---------------- */
+
+label {
+  display: block;
+  font-size: 1.4rem;
+  margin-top: 8px
+}
+
+input {
+  padding: 0 6px;
+  height: 32px;
+  margin-right: 18px;
+}
+
+.contents {
+  display: flex;
+}
+
+.input__1 {
+  width: 100px;
+}
+
+.input__6 {
+  width: 240px;
+}
+
+textarea {
+  width: 400px;
+  resize: none;
+  padding: 10px;
+}
+
+/* -------------------------------------- */
+
+.total__box {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.total__box table tr td {
+  height: 36px;
+}
+
+/* -------------------------------------- */
+
+table tr td input {
+  border: none;
+  width: 100%;
+}
+
+th,
+td {
+  border: solid 1px;
+}
+
+table {
+  border-collapse: collapse; /* セルの線を重ねる */
+  margin-top: 12px;
+}
+
+select {
+  border: none;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+}
+
+tr th {
+  padding: 4px;
+  font-size: 1.4rem;
+}
+
+table tr td:nth-child(1) {
+  text-align: center;
+}
+
+table tr td:nth-child(2) {
+  width: 200px;
+}
+
+table tr td:nth-child(3) {
+  width: 80px;
+}
+
+table tr td:nth-child(4) {
+  width: 80px;
+}
+
+table tr td:nth-child(5) {
+  width: 150px;
+}
+
+table tr td:nth-child(6) {
+  width: 200px;
+}

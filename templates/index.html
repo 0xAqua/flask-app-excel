@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}} ">
+  </head>
+  <body>
+    <div class="container">
+        <form method='post' action='{{url_for("process_form")}}'>
+        <div class="btns">
+        <input type="submit" value="Excel 保存" class="excel" name="submit-action"/>
+      </div>
+        <div class="company__info">
+        <div class="contents">
+          <div class="field">
+            <label for="">請求書No</label>
+            <input type="text" name="claim__no" class="input__1" id="claim__no" />
+          </div>
+          <div class="field">
+            <label for="">請求日</label>
+            <input type="date" name="claim__day" class="input__2" id="claim__day" />
+          </div>
+          <div class="field">
+            <label for="">支払日</label>
+            <input type="date" name="payment__day" class="input__3" id="payment__day"/>
+          </div>
+        </div>
+        <div class="contents">
+          <div class="field">
+            <label for="">会社名</label>
+            <input type="text" name="company" class="input__4" />
+          </div>
+          <div class="field">
+            <label for="">郵便番号</label>
+            <input type="text" name="post__no" class="input__5" />
+          </div>
+          <div class="field">
+            <label for="">住所</label>
+            <input type="text" name="address" class="input__6" />
+          </div>
+        </div>
+        <div class="contents">
+          <div class="field">
+            <label for="">担当者名</label>
+            <input type="text" name="manager" class="input__7" />
+          </div>
+          <div class="field">
+            <label for="">備考</label>
+            <textarea name="note" id="" cols="30" rows="6"></textarea>
+          </div>
+        </div>
+      </div>
+        <table>
+        <tr>
+          <th>No</th>
+          <th>項目</th>
+          <th>数量</th>
+          <th>単位</th>
+          <th>単価</th>
+          <th>金額</th>
+        </tr>
+        <tr>
+          <td><span class="no">1</span></td>
+          <td><input type="text" name="item__1" /></td>
+          <td>
+            <input type="number" name="quantity__1" id="quantity__1" />
+          </td>
+          <td>
+            <select name="unit_1">
+              <option value=""></option>
+              <option value="式">式</option>
+              <option value="m">m</option>
+              <option value="㎡">㎡</option>
+              <option value="人">人</option>
+              <option value="本">本</option>
+              <option value="量">量</option>
+            </select>
+          </td>
+          <td>
+            <input type="number" name="unit__price__1" id="unit__price__1" />
+          </td>
+          <td>
+            <input type="number" name="amount__1" id="amount__1" value="0" />
+          </td>
+        </tr>
+        <tr>
+          <td><span class="no">2</span></td>
+          <td><input type="text" name="item__2" /></td>
+          <td>
+            <input type="number" name="quantity__2" id="quantity__2" />
+          </td>
+          <td>
+            <select name="unit_2">
+              <option value=""></option>
+              <option value="式">式</option>
+              <option value="m">m</option>
+              <option value="㎡">㎡</option>
+              <option value="人">人</option>
+              <option value="本">本</option>
+              <option value="量">量</option>
+            </select>
+          </td>
+          <td>
+            <input type="number" name="unit__price__2" id="unit__price__2" />
+          </td>
+          <td>
+            <input type="number" name="amount__2" id="amount__2" value="0" />
+          </td>
+        </tr>
+        <tr>
+          <td><span class="no">3</span></td>
+          <td><input type="text" name="item__3" /></td>
+          <td>
+            <input type="number" name="quantity__3" id="quantity__3" />
+          </td>
+          <td>
+            <select name="unit_3">
+              <option value=""></option>
+              <option value="式">式</option>
+              <option value="m">m</option>
+              <option value="㎡">㎡</option>
+              <option value="人">人</option>
+              <option value="本">本</option>
+              <option value="量">量</option>
+            </select>
+          </td>
+          <td>
+            <input type="number" name="unit__price__3" id="unit__price__3" />
+          </td>
+          <td>
+            <input type="number" name="amount__3" id="amount__3" value="0"  />
+          </td>
+        </tr>
+        <tr>
+          <td><span class="no">4</span></td>
+          <td><input type="text" name="item__4" /></td>
+          <td>
+            <input type="number" name="quantity__4" id="quantity__4" />
+          </td>
+          <td>
+            <select name="unit_4">
+              <option value=""></option>
+              <option value="式">式</option>
+              <option value="m">m</option>
+              <option value="㎡">㎡</option>
+              <option value="人">人</option>
+              <option value="本">本</option>
+              <option value="量">量</option>
+            </select>
+          </td>
+          <td>
+            <input type="number" name="unit__price__4" id="unit__price__4" />
+          </td>
+          <td>
+            <input type="number" name="amount__4" id="amount__4" value="0" />
+          </td>
+        </tr>
+        <tr>
+          <td><span class="no">5</span></td>
+          <td><input type="text" name="item__5" /></td>
+          <td>
+            <input type="number" name="quantity__5" id="quantity__5" />
+          </td>
+          <td>
+            <select name="unit_5">
+              <option value=""></option>
+              <option value="式">式</option>
+              <option value="m">m</option>
+              <option value="㎡">㎡</option>
+              <option value="人">人</option>
+              <option value="本">本</option>
+              <option value="量">量</option>
+            </select>
+          </td>
+          <td>
+            <input type="number" name="unit__price__5" id="unit__price__5" />
+          </td>
+          <td>
+            <input type="number" name="amount__5" id="amount__5" value="0" />
+          </td>
+        </tr>
+        <tr>
+          <td><span class="no">6</span></td>
+          <td><input type="text" name="item__6" /></td>
+          <td>
+            <input type="number" name="quantity__6" id="quantity__6" />
+          </td>
+          <td>
+            <select name="unit_6">
+              <option value=""></option>
+              <option value="式">式</option>
+              <option value="m">m</option>
+              <option value="㎡">㎡</option>
+              <option value="人">人</option>
+              <option value="本">本</option>
+              <option value="量">量</option>
+            </select>
+          </td>
+          <td>
+            <input type="number" name="unit__price__6" id="unit__price__6" />
+          </td>
+          <td>
+            <input type="number" name="amount__6" id="amount__6" value="0" />
+          </td>
+        </tr>
+        <tr>
+          <td><span class="no">7</span></td>
+          <td><input type="text" name="item__7" /></td>
+          <td>
+            <input type="number" name="quantity__7" id="quantity__7" />
+          </td>
+          <td>
+            <select name="unit_7">
+              <option value=""></option>
+              <option value="式">式</option>
+              <option value="m">m</option>
+              <option value="㎡">㎡</option>
+              <option value="人">人</option>
+              <option value="本">本</option>
+              <option value="量">量</option>
+            </select>
+          </td>
+          <td>
+            <input type="number" name="unit__price__7" id="unit__price__7" />
+          </td>
+          <td>
+            <input type="number" name="amount__7" id="amount__7" value="0" />
+          </td>
+        </tr>
+        <tr>
+          <td><span class="no">8</span></td>
+          <td><input type="text" name="item__8" /></td>
+          <td>
+            <input type="number" name="quantity__8" id="quantity__8" />
+          </td>
+          <td>
+            <select name="unit_8">
+              <option value=""></option>
+              <option value="式">式</option>
+              <option value="m">m</option>
+              <option value="㎡">㎡</option>
+              <option value="人">人</option>
+              <option value="本">本</option>
+              <option value="量">量</option>
+            </select>
+          </td>
+          <td>
+            <input type="number" name="unit__price__8" id="unit__price__8" />
+          </td>
+          <td>
+            <input type="number" name="amount__8" id="amount__8" value="0" />
+          </td>
+        </tr>
+                  <tr>
+          <td><span class="no">9</span></td>
+          <td><input type="text" name="item__9" /></td>
+          <td>
+            <input type="number" name="quantity__9" id="quantity__9" />
+          </td>
+          <td>
+            <select name="unit_9">
+              <option value=""></option>
+              <option value="式">式</option>
+              <option value="m">m</option>
+              <option value="㎡">㎡</option>
+              <option value="人">人</option>
+              <option value="本">本</option>
+              <option value="量">量</option>
+            </select>
+          </td>
+          <td>
+            <input type="number" name="unit__price__9" id="unit__price__9" />
+          </td>
+          <td>
+            <input type="number" name="amount__9" id="amount__9" value="0" />
+          </td>
+        </tr>
+                  <tr>
+          <td><span class="no">10</span></td>
+          <td><input type="text" name="item__10" /></td>
+          <td>
+            <input type="number" name="quantity__10" id="quantity__10" />
+          </td>
+          <td>
+            <select name="unit_10">
+              <option value=""></option>
+              <option value="式">式</option>
+              <option value="m">m</option>
+              <option value="㎡">㎡</option>
+              <option value="人">人</option>
+              <option value="本">本</option>
+              <option value="量">量</option>
+            </select>
+          </td>
+          <td>
+            <input type="number" name="unit__price__10" id="unit__price__10" />
+          </td>
+          <td>
+            <input type="number" name="amount__10" id="amount__10" value="0" />
+          </td>
+        </tr>
+                  <tr>
+          <td><span class="no">11</span></td>
+          <td><input type="text" name="item__11" /></td>
+          <td>
+            <input type="number" name="quantity__11" id="quantity__11" />
+          </td>
+          <td>
+            <select name="unit_11">
+              <option value=""></option>
+              <option value="式">式</option>
+              <option value="m">m</option>
+              <option value="㎡">㎡</option>
+              <option value="人">人</option>
+              <option value="本">本</option>
+              <option value="量">量</option>
+            </select>
+          </td>
+          <td>
+            <input type="number" name="unit__price__11" id="unit__price__11" />
+          </td>
+          <td>
+            <input type="number" name="amount__11" id="amount__11" value="0" />
+          </td>
+        </tr>
+                  <tr>
+          <td><span class="no">12</span></td>
+          <td><input type="text" name="item__12" /></td>
+          <td>
+            <input type="number" name="quantity__12" id="quantity__12" />
+          </td>
+          <td>
+            <select name="unit_12">
+              <option value=""></option>
+              <option value="式">式</option>
+              <option value="m">m</option>
+              <option value="㎡">㎡</option>
+              <option value="人">人</option>
+              <option value="本">本</option>
+              <option value="量">量</option>
+            </select>
+          </td>
+          <td>
+            <input type="number" name="unit__price__12" id="unit__price__12" />
+          </td>
+          <td>
+            <input type="number" name="amount__12" id="amount__12" value="0" />
+          </td>
+        </tr>
+                  <tr>
+          <td><span class="no">13</span></td>
+          <td><input type="text" name="item__13" /></td>
+          <td>
+            <input type="number" name="quantity__13" id="quantity__13" />
+          </td>
+          <td>
+            <select name="unit_13">
+              <option value=""></option>
+              <option value="式">式</option>
+              <option value="m">m</option>
+              <option value="㎡">㎡</option>
+              <option value="人">人</option>
+              <option value="本">本</option>
+              <option value="量">量</option>
+            </select>
+          </td>
+          <td>
+            <input type="number" name="unit__price__13" id="unit__price__13" />
+          </td>
+          <td>
+            <input type="number" name="amount__13" id="amount__13" value="0" />
+          </td>
+        </tr>
+                  <tr>
+          <td><span class="no">14</span></td>
+          <td><input type="text" name="item__14" /></td>
+          <td>
+            <input type="number" name="quantity__14" id="quantity__14" />
+          </td>
+          <td>
+            <select name="unit_14">
+              <option value=""></option>
+              <option value="式">式</option>
+              <option value="m">m</option>
+              <option value="㎡">㎡</option>
+              <option value="人">人</option>
+              <option value="本">本</option>
+              <option value="量">量</option>
+            </select>
+          </td>
+          <td>
+            <input type="number" name="unit__price__14" id="unit__price__14" />
+          </td>
+          <td>
+            <input type="number" name="amount__14" id="amount__14" value="0" />
+          </td>
+        </tr>
+      </table>
+        <div class="total__box">
+        <table>
+          <tr>
+            <th>小計</th>
+            <td><input type="number" name="sub_total" id="sub_total" /></td>
+          </tr>
+          <tr>
+            <th>消費税</th>
+            <td><input type="number" name="tax" id="tax" /></td>
+          </tr>
+          <tr>
+            <th>合計</th>
+            <td><input type="number" name="total" id="total"/></td>
+          </tr>
+        </table>
+      </div>
+      </form>
+    </div>
+<script src="{{ url_for('static', filename='javascript/script.js') }}"></script>
+  </body>
+</html>
